@@ -10,7 +10,7 @@ var (
 )
 
 func main(){
-err , sum:= Sum(1,2.14241,2,1,23,2,2,1,1)
+err , sum:= Sum(0.1,0.3)
 if err != nil {
 	log.Error(err.Error())
 	return

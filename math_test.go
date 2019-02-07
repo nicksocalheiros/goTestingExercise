@@ -4,6 +4,7 @@ import "testing"
 
 func TestSum(t *testing.T){
 	err,total := Sum(5,7.8)
+
 	if err !=nil{
 		t.Error(err)
 	}
