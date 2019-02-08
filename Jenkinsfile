@@ -48,18 +48,6 @@ pipeline{
                 sh 'cp ${GOPATH}/src/github.com/uasouz/goTestingexercise/app .'
             }
         }
-
-        stage('Go to Production?'){
-            steps{
-                timeout(time: 30, unit: 'SECONDS') {
-                    script{
-                        def INPUT_PARAMS = input message: 'Por favor,tome uma acao', ok: 'Next',parameters: [ choice(name: 'TOPROD', choices: ['Sim','Não'].join('\n'), description: 'Devo ir para producao?')],
-                        env.TOPROD = INPUT_PARAMS.TOPROD
-                        echo "${env.TOPROD}"
-                    }
-                }
-            }
-        }
     }
 
     post {
