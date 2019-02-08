@@ -16,23 +16,24 @@ pipeline{
                 sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && dep ensure'
             }
         }
-
-        parallel{
-            stage('TestSum'){
-                steps{
-                    sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test -run TestSum'
+        stage('Tests'){
+            parallel{
+                stage('TestSum'){
+                    steps{
+                        sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test -run TestSum'
+                    }
                 }
-            }
 
-            stage('TestHashToBcrypt'){
-                steps{
-                    sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test -run TestHashToBcrypt'
+                stage('TestHashToBcrypt'){
+                    steps{
+                        sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test -run TestHashToBcrypt'
+                    }
                 }
-            }
 
-            stage('TestRemoveNonNumeric'){
-                steps{
-                    sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test -run TestRemoveNonNumeric'
+                stage('TestRemoveNonNumeric'){
+                    steps{
+                        sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test -run TestRemoveNonNumeric'
+                    }
                 }
             }
         }
