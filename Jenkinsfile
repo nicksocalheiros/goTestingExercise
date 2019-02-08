@@ -1,12 +1,12 @@
 #!/usr/bin/env groovy
 pipeline{
-    agent any
 
-    tools { go "1.2"}
+    agent { docker { image 'golang' } }
 
     stages{
 
         stage('Dependencies'){
+
             steps{
                 sh 'cd ${GOPATH}/src'
                 sh 'mkdir -p ${GOPATH}/src/goTestingexercise'
