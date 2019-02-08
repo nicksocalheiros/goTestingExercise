@@ -32,8 +32,8 @@ pipeline{
 
         stage('Move Results'){
             steps{
-                sh 'cp cd ${GOPATH}/src/github.com/uasouz/goTestingexercise/app .'
-                sh 'cp cd ${GOPATH}/src/github.com/uasouz/goTestingexercise/report.xml .'
+                sh 'cp ${GOPATH}/src/github.com/uasouz/goTestingexercise/app .'
+                sh 'cp ${GOPATH}/src/github.com/uasouz/goTestingexercise/report.xml .'
             }
         }
     }
