@@ -51,10 +51,12 @@ pipeline{
 
         stage('Go to Production?'){
             steps{
-                script{
-                    def INPUT_PARAMS = input message: 'Por favor,tome uma acao', ok: 'Next',parameters: [ choice(name: 'TOPROD', choices: ['Sim','Não'].join('\n'), description: 'Devo ir para producao?')],
-                    env.TOPROD = INPUT_PARAMS.TOPROD
-                    echo "${env.TOPROD}"
+                timeout(time: 30, unit: 'SECONDS') {
+                    script{
+                        def INPUT_PARAMS = input message: 'Por favor,tome uma acao', ok: 'Next',parameters: [ choice(name: 'TOPROD', choices: ['Sim','Não'].join('\n'), description: 'Devo ir para producao?')],
+                        env.TOPROD = INPUT_PARAMS.TOPROD
+                        echo "${env.TOPROD}"
+                    }
                 }
             }
         }
