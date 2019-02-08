@@ -3,7 +3,7 @@ pipeline{
     agent {
         docker {
          image 'golang'
-         customWorkspace "/go/src/github.com/uasouz/goTestingExercise"
+         customWorkspace "/go/src/github.com/uasouz/goTestingExercise/"
         }
     }
 
