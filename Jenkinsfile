@@ -10,8 +10,13 @@ pipeline{
 
         stage('Build'){
             steps{
-                sh 'go build main.go math.go'
+                sh 'go build main.go math.go -o app'
             }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
         }
     }
 }
