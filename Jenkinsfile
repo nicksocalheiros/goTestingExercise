@@ -19,7 +19,7 @@ pipeline{
         stage('Test'){
             steps{
                 sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test'
-                sh 'ls'
+                sh 'echo "É tetra"'
             }
         }
 
