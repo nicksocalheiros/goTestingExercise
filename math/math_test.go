@@ -1,4 +1,4 @@
-package gotestexercise_test
+package math_test
 
 import (
 	gte "github.com/uasouz/goTestingExercise"

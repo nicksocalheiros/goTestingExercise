@@ -1,4 +1,4 @@
-package gotestexercise
+package math
 
 import (
 	"errors"
