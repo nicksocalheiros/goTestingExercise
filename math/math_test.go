@@ -1,13 +1,13 @@
 package math_test
 
 import (
-	gte "github.com/uasouz/goTestingExercise"
+	"github.com/uasouz/goTestingExercise/math"
 	"testing"
 )
 
 
 func TestSum(t *testing.T){
-	err,total := gte.Sum(5,7.8)
+	err,total := math.Sum(5,7.8)
 
 	if err !=nil{
 		t.Error(err)
