@@ -1,5 +1,8 @@
 # goTestingExercise - Jenkins Basic
 
+## Link para apresentação: 
+https://docs.google.com/presentation/d/1xhtb5jzFzbrFQ635hSIlVlmK0V9WBQD_A6JtlDfwnHQ/edit?usp=sharing
+
 ## Iniciando Jenkins via Docker
 
 ```
