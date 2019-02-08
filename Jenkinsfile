@@ -3,6 +3,13 @@ pipeline{
     agent { docker { image 'golang' } }
 
     stages{
+
+        stage('Dependencies'){
+            steps{
+                sh 'curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh'
+            }
+        }
+
         stage('Test'){
             steps{
                 sh 'go test'

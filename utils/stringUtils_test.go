@@ -1,6 +1,7 @@
-package utils
+package utils_test
 
 import (
+	"github.com/uasouz/goTestingExercise/utils"
 	"golang.org/x/crypto/bcrypt"
 	"testing"
 )
@@ -8,7 +9,7 @@ import (
 func TestRemoveNonNumeric(t *testing.T){
 	document := "014.400.032-62"
 	expected := "01440003262"
-	if value, err := RemoveNonNumeric(document); true {
+	if value, err := utils.RemoveNonNumeric(document); true {
 		if err!= nil {
 			t.Error(err)
 		} else if value != expected {
@@ -20,7 +21,7 @@ func TestRemoveNonNumeric(t *testing.T){
 func TestHashToBcrypt(t *testing.T){
 	expected := "$2y$12$z4NcAPlZuwqNFd7Q61Q1Q.jnGMLdgkhKSI9RH5WQCmzVr/aMtuROe"
 	originalValue := "12345678"
-	result,err := HashToBCrypt(originalValue)
+	result,err := utils.HashToBCrypt(originalValue)
 	if err!= nil {
 		t.Error(err)
 	}

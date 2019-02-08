@@ -1,9 +1,13 @@
-package main
+package main_test
 
-import "testing"
+import (
+	gte "github.com/uasouz/goTestingExercise"
+	"testing"
+)
+
 
 func TestSum(t *testing.T){
-	err,total := Sum(5,7.8)
+	err,total := gte.Sum(5,7.8)
 
 	if err !=nil{
 		t.Error(err)
