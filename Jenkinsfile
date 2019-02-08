@@ -48,7 +48,7 @@ pipeline{
 
     post {
         always {
-            archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
+            archiveArtifacts artifacts: './app', onlyIfSuccessful: true
             deleteDir()
         }
     }
