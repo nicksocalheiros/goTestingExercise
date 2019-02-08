@@ -11,7 +11,6 @@ pipeline{
                 sh 'cd ${GOPATH}/src'
                 sh 'mkdir -p ${GOPATH}/src/github.com/uasouz/goTestingexercise'
                 sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/github.com/uasouz/goTestingexercise'
-                sh 'pwd'
                 sh 'curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh'
                 sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && dep ensure'
             }
@@ -44,11 +43,15 @@ pipeline{
             }
         }
 
+        stage('Move Results'){
+            steps{
+                sh 'cp ${GOPATH}/src/github.com/uasouz/goTestingexercise/app .'
+            }
+        }
     }
 
     post {
         always {
-            sh 'pwd && ls'
             archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
             deleteDir()
         }
