@@ -9,23 +9,23 @@ pipeline{
 
             steps{
                 sh 'cd ${GOPATH}/src'
-                sh 'mkdir -p ${GOPATH}/src/goTestingexercise'
-                sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/goTestingexercise'
+                sh 'mkdir -p ${GOPATH}/src/github.com/uasouz/goTestingexercise'
+                sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/github.com/uasouz/goTestingexercise'
                 sh 'pwd'
                 sh 'curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh'
-                sh 'cd ${GOPATH}/src/goTestingexercise && dep ensure'
+                sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && dep ensure'
             }
         }
 
         stage('Test'){
             steps{
-                sh 'cd ${GOPATH}/src/goTestingexercise && go test'
+                sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test'
             }
         }
 
         stage('Build'){
             steps{
-                sh 'cd ${GOPATH}/src/goTestingexercise && go build main.go math.go -o app'
+                sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go build main.go math.go -o app'
             }
         }
     }
