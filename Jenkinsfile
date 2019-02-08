@@ -1,7 +1,6 @@
+#!/usr/bin/env groovy
 pipeline{
-    agent any
-
-    tools {go "go"}
+    agent { docker { image 'golang' } }
 
     stages{
         stage('Test'){
