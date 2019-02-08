@@ -25,7 +25,7 @@ pipeline{
 
         stage('Build'){
             steps{
-                sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go build main.go math.go -o app'
+                sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go build main.go -o app'
             }
         }
     }
