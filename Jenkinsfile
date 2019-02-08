@@ -32,9 +32,9 @@ pipeline{
     }
     post {
         always {
-            sh 'pwd && ls'
-            archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
-            junit 'report.xml'
+            sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && pwd && ls'
+            archiveArtifacts artifacts: '/go/src/github.com/uasouz/goTestingexercise/app', onlyIfSuccessful: true
+            junit '/go/src/github.com/uasouz/goTestingexercise/report.xml'
             deleteDir()
         }
     }
