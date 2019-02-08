@@ -49,7 +49,7 @@ pipeline{
     post {
         always {
             sh 'pwd && ls'
-            archiveArtifacts artifacts: '${GOPATH}/src/github.com/uasouz/goTestingexercise/app', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
             deleteDir()
         }
     }
