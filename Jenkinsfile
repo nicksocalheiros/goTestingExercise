@@ -13,6 +13,7 @@ pipeline{
                 sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/github.com/uasouz/goTestingexercise'
                 sh 'curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh'
                 sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && dep ensure'
+                sh 'echo 'Hello World!''
             }
         }
 
