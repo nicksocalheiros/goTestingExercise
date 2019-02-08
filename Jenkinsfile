@@ -13,8 +13,9 @@ pipeline{
                 sh 'cd ${GOPATH}/src'
                 sh 'mkdir -p ${GOPATH}/src/goTestingexercise'
                 sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/goTestingexercise'
+                sh 'pwd'
                 sh 'curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh'
-                sh 'dep init'
+                sh 'cd ${GOPATH}/src/goTestingexercise && dep init'
             }
         }
 
