@@ -17,9 +17,19 @@ pipeline{
         }
 
         stage('Test'){
-            steps{
-                sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test'
-            }
+	    parallel{
+		stage('ParallelTest'){
+			steps{
+				echo testing
+		     	     }
+		}
+		stage('TestExercise'){
+		
+            		steps{
+                		sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go test'
+            		     }
+		}
+	    }
         }
 
         stage('Build'){
