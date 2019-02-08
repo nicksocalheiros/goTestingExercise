@@ -1,10 +1,8 @@
 #!/usr/bin/env groovy
 pipeline{
-    agent {
-        docker {
-         image 'golang'
-        }
-    }
+    agent any
+
+    tools { go "Go 1.8"}
 
     stages{
 
