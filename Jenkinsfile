@@ -1,6 +1,8 @@
 pipeline{
     agent any
 
+    tools {go "go"}
+
     stages{
         stage('Test'){
             steps{
