@@ -1,11 +1,11 @@
 #!/usr/bin/env groovy
 pipeline{
     agent {
-    docker {
-     image 'golang'
-     customWorkSpace '/go/src/goTestingExercise'
-      }
-      }
+        docker {
+         image 'golang'
+         customWorkspace "/go/src/github.com/uasouz/goTestingExercise"
+        }
+    }
 
     stages{
 
