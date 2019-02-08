@@ -21,13 +21,13 @@ pipeline{
 
         stage('Test'){
             steps{
-                sh 'go test'
+                sh 'cd ${GOPATH}/src/goTestingexercise && go test'
             }
         }
 
         stage('Build'){
             steps{
-                sh 'go build main.go math.go -o app'
+                sh 'cd ${GOPATH}/src/goTestingexercise && go build main.go math.go -o app'
             }
         }
     }
