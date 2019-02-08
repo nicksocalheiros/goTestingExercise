@@ -3,7 +3,6 @@ pipeline{
     agent {
         docker {
          image 'golang'
-         customWorkspace "/go/src/github.com/uasouz/goTestingExercise/"
         }
     }
 
@@ -11,6 +10,9 @@ pipeline{
 
         stage('Dependencies'){
             steps{
+                sh 'cd ${GOPATH}/src'
+                sh 'mkdir -p ${GOPATH}/src/goTestingexercise'
+                sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/goTestingexercise'
                 sh 'curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh'
                 sh 'dep init'
             }
@@ -31,6 +33,7 @@ pipeline{
     post {
         always {
             archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
+            deleteDir()
         }
     }
 }
