@@ -7,6 +7,7 @@ pipeline{
         stage('Dependencies'){
             steps{
                 sh 'curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh'
+                sh 'dep init'
             }
         }
 
