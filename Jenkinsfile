@@ -32,6 +32,7 @@ pipeline{
     }
     post {
         always {
+            sh 'pwd && ls'
             archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
             junit 'report.xml'
             deleteDir()
