@@ -31,7 +31,7 @@ pipeline{
     }
     post {
         always {
-            archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
+            archiveArtifacts artifacts: '${GOPATH}/src/github.com/uasouz/goTestingexercise/app', onlyIfSuccessful: true
             deleteDir()
         }
     }
