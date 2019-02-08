@@ -29,12 +29,19 @@ pipeline{
                 sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && go build -o app main.go '
             }
         }
+
+        stage('Move Results'){
+            steps{
+                sh 'cp cd ${GOPATH}/src/github.com/uasouz/goTestingexercise/app ./app'
+                sh 'cp cd ${GOPATH}/src/github.com/uasouz/goTestingexercise/report.xml ./report.xml'
+            }
+        }
     }
     post {
         always {
-            sh 'cd ${GOPATH}/src/github.com/uasouz/goTestingexercise && pwd && ls'
-            archiveArtifacts artifacts: '/go/src/github.com/uasouz/goTestingexercise/app', onlyIfSuccessful: true
-            junit '/go/src/github.com/uasouz/goTestingexercise/report.xml'
+            sh 'pwd && ls'
+            archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
+            junit 'report.xml'
             deleteDir()
         }
     }
